@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\FabricanteRequest;
 use App\Models\Fabricante;
 use Illuminate\Http\Request;
+use App\Services\FabricanteService;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\DataTables\FabricanteDataTable;
 
 class FabricanteController extends Controller
 {
@@ -12,9 +15,9 @@ class FabricanteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(FabricanteDataTable $fabricanteDataTable)
     {
-        return view('fabricante.index');
+        return $fabricanteDataTable->render('fabricante.index');
     }
 
     /**
@@ -33,9 +36,20 @@ class FabricanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FabricanteRequest $request)
     {
-        //
+        $fabricante = FabricanteService::store($request->all());
+        
+        if($fabricante){
+            Alert()->success($fabricante->nome,'Cadastrado com sucesso');
+            //toast($request->nome.' Cadastrado com sucesso','success');
+            // flash($request->nome.' Cadastrado com sucesso')->success();
+
+            return back();
+        }
+
+        Alert('Erro ao salvar fabricante', 'Error');
+        return back()->withInput();
     }
 
     /**
@@ -57,7 +71,7 @@ class FabricanteController extends Controller
      */
     public function edit(Fabricante $fabricante)
     {
-        //
+        return view('fabricante.form', compact('fabricante'));
     }
 
     /**
@@ -69,7 +83,16 @@ class FabricanteController extends Controller
      */
     public function update(Request $request, Fabricante $fabricante)
     {
-        //
+        $fabricante = FabricanteService::update($request->all(), $fabricante);
+
+        if($fabricante){
+            Alert()->success($request->nome,'Atualizado com sucesso');
+            // toast($request->nome.' Atualizado com sucesso','success');
+            return back();
+        }
+
+        alert()->error('Erro ao atualizar o fabricante');
+        return back()->withInput();
     }
 
     /**
