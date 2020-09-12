@@ -41,11 +41,13 @@ class ProdutoController extends Controller
         $produto = ProdutoService::store($request->all());
         
         if($produto){
-            flash('Produto Cadastrado com sucesso')->success();
+            toast('Produto Cadastrado com sucesso', 'success');
+            //flash('Produto Cadastrado com sucesso')->success();
             return back();
         }
 
-        flash('Erro ao salvar o produto')->error();
+        alert()->error('Erro ao salvar o produto');
+        //flash('Erro ao salvar o produto')->error();
         
         return back()->withInput();
     }
@@ -76,11 +78,13 @@ class ProdutoController extends Controller
         $prod = ProdutoService::update($request->all(), $produto);
 
         if($prod){
-            flash('Produto atualizado com sucesso')->success();
+            alert()->success('Produto atualizado com sucesso');
+            //flash('Produto atualizado com sucesso')->success();
             return back();
         }
 
-        flash('Erro ao atualizar o produto')->error();
+        alert()->error('Erro ao atualizar o produto');
+        //flash('Erro ao atualizar o produto')->error();
         return back()->withInput();
     }
 
