@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Services\FabricanteService;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\DataTables\FabricanteDataTable;
+use Throwable;
 
 class FabricanteController extends Controller
 {
@@ -103,6 +104,10 @@ class FabricanteController extends Controller
      */
     public function destroy(Fabricante $fabricante)
     {
-        //
+        try{
+            $fabricante->delete();
+        }catch(Throwable $th){
+            return response('erro ao apagar', 400);
+        }
     }
 }
