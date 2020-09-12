@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <a href="{{route('fabricantes.create')}}">Cadastrar Novo</a>
+    <a class="btn btn-sm btn-dark" href="{{route('fabricantes.create')}}">Cadastrar Novo</a>
 @stop
 
 @section('css')
