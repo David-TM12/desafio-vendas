@@ -25,4 +25,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function (){
     Route::resource('fabricantes', 'FabricanteController');
+    Route::resource('produtos', 'ProdutoController');
 });

@@ -41,8 +41,8 @@ class FabricanteController extends Controller
         $fabricante = FabricanteService::store($request->all());
         
         if($fabricante){
-            Alert()->success($fabricante->nome,'Cadastrado com sucesso');
-            //toast($request->nome.' Cadastrado com sucesso','success');
+            //Alert()->success($fabricante->nome,'Cadastrado com sucesso');
+            toast($request->nome.' Cadastrado com sucesso','success');
             // flash($request->nome.' Cadastrado com sucesso')->success();
 
             return back();
