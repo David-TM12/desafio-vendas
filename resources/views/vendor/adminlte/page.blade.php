@@ -45,8 +45,8 @@
             {{-- Main Content --}}
             <div class="content">
                 <div class="{{ config('adminlte.classes_content') ?: $def_container_class }}">
-                    @include('flash::message');
-                    @include('sweetalert::alert');
+                    @include('flash::message')
+                    @include('sweetalert::alert')
                     @yield('content')
                 </div>
             </div>
