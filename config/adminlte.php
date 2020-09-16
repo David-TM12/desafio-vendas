@@ -245,6 +245,11 @@ return [
             'url' => 'clientes',
             'text' => 'Clientes',
             'icon' => 'fas fa-users'
+        ],
+        [
+            'url' => 'usuarios',
+            'text' => 'Usuários',
+            'icon' => 'fas fa-user-shield'
         ]
     ],
 
