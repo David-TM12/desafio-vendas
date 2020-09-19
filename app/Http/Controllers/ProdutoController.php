@@ -52,6 +52,18 @@ class ProdutoController extends Controller
         return back()->withInput();
     }
 
+
+    public function show($id)
+    {
+        try {
+            return Produto::findOrFail($id);
+        } catch (Throwable $th) {
+            return response('Erro ao selecionar o produto', 400);
+        }
+    }
+
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -102,5 +114,10 @@ class ProdutoController extends Controller
             return response('Erro ao apagar',400);
         }
 
+    }
+
+    public function listaProdutos(Request $request)
+    {
+        return ProdutoService::listaProdutos($request->all());
     }
 }

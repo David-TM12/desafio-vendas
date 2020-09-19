@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\VendaDataTable;
 use App\Models\Venda;
+use App\Services\VendaService;
 use Illuminate\Http\Request;
 
 class VendaController extends Controller
@@ -12,9 +14,9 @@ class VendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(VendaDataTable $vendaDataTable)
     {
-        //
+        return $vendaDataTable->render('venda.index');
     }
 
     /**
@@ -24,7 +26,9 @@ class VendaController extends Controller
      */
     public function create()
     {
-        //
+        return view('venda.form', [
+            'formasPagamento' => Venda::FORMAS_PAGAMENTO
+        ]);
     }
 
     /**
@@ -35,7 +39,14 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $venda = VendaService::store($request);
+
+        if($venda){
+            alert()->success('Venda finalizada com sucesso');
+            return response('', 201);
+        }
+
+        return response('Erro ao salvar a venda', 400);
     }
 
     /**
@@ -46,40 +57,12 @@ class VendaController extends Controller
      */
     public function show(Venda $venda)
     {
-        //
+        try {
+            return view('venda.details', compact('venda'));
+        } catch (\Throwable $th) {
+            flash('Ops! Ocorreu um erro ao exibir a venda')->error();
+            return back();
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Venda  $venda
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Venda $venda)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Venda  $venda
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Venda $venda)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Venda  $venda
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Venda $venda)
-    {
-        //
-    }
 }

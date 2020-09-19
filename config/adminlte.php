@@ -245,6 +245,11 @@ return [
             'url' => 'clientes',
             'text' => 'Clientes',
             'icon' => 'fas fa-users'
+        ],
+        [
+            'url' => 'vendas',
+            'text' => 'Vendas',
+            'icon' => 'fas fa-shopping-cart'
         ]
     ],
 
@@ -319,7 +324,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

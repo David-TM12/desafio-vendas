@@ -110,4 +110,9 @@ class ClienteController extends Controller
             return response('Erro ao apagar',400);
         }
     }
+
+    public function listaClientes(Request $request)
+    {
+        return ClienteService::listaClientes($request->all());
+    }
 }
