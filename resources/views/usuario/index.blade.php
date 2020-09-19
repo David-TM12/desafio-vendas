@@ -1,22 +1,27 @@
 @extends('adminlte::page')
 
-@section('title', ' ')
+@section('title', 'Usuários')
 
 @section('content_header')
-    <h1>Produtos</h1>
+    <h1>Usuario</h1>
 @stop
 
 @section('content')
     <div class="card card-primary">
         <div class="card-body">
-            {!! $dataTable->table() !!}
+                {!! $dataTable->table() !!}
         </div>
     </div>
 @stop
 
 @section('css')
+    
 @stop
 
 @section('js')
     {!! $dataTable->scripts() !!}
 @stop
+
+
+    
+    

@@ -89,10 +89,18 @@ class ProdutoDataTable extends DataTable
                   ->printable(false)
                   ->addClass('text-center')
                   ->title('Ações'),
-            Column::make('descricao'),
+
+            Column::make('descricao')
+                  ->title('Descerição'),
+
             Column::make('estoque'),
-            Column::make('preco'),
-            Column::make('nome')->name('fabricantes.nome')
+
+            Column::make('preco')
+                  ->title('Preço'),
+                  
+            Column::make('nome')
+                  ->name('fabricantes.nome')
+                  ->title('Fabricante'),
         ];
     }
 

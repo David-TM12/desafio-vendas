@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function (){
     Route::resource('produtos', 'ProdutoController');
     Route::get('lista-produtos', 'ProdutoController@listaProdutos')->name('lista.produtos');
     Route::resource('clientes', 'ClienteController');
+    Route::resource('usuarios', 'UserController');
     Route::get('lista-clientes', 'ClienteController@listaClientes')->name('lista.clientes');
 
     Route::resource('vendas', 'VendaController')->only([

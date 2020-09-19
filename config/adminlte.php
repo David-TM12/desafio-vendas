@@ -247,6 +247,11 @@ return [
             'icon' => 'fas fa-users'
         ],
         [
+            'url' => 'usuarios',
+            'text' => 'Usuários',
+            'icon' => 'fas fa-user-shield'
+        ],
+        [
             'url' => 'vendas',
             'text' => 'Vendas',
             'icon' => 'fas fa-shopping-cart'

@@ -81,7 +81,8 @@ class ClienteDataTable extends DataTable
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->addClass('text-center'),
+                  ->addClass('text-center')
+                  ->title('Ações'),
             Column::make('nome'),
             Column::make('email'),
             Column::make('telefone'),
