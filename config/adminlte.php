@@ -388,5 +388,15 @@ return [
                 ],
             ],
         ],
+        "Highcharts" => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//code.highcharts.com/highcharts.js',
+                ],
+            ],
+        ]
     ],
 ];

@@ -6,6 +6,7 @@ use App\DataTables\VendaDataTable;
 use App\Models\Venda;
 use App\Services\VendaService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VendaController extends Controller
 {
@@ -63,6 +64,16 @@ class VendaController extends Controller
             flash('Ops! Ocorreu um erro ao exibir a venda')->error();
             return back();
         }
+    }
+
+    public function graficoQtdCompras(){
+    
+        $userDatas = Venda::join('clientes', 'clientes.id', 'vendas.cliente_id')
+        ->select('clientes.nome', DB::raw('count(vendas.cliente_id) as qtd'))
+        ->groupBy('cliente_id','nome')
+        ->get();
+
+        return view('home', compact('userDatas'));
     }
 
 }

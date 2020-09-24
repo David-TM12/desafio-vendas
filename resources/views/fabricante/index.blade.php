@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <a href="{{route('fabricantes.create')}}" class="btn btn-primary mb-2">Cadastrar Novo</a>
+    {{-- <a href="{{route('fabricantes.create')}}" class="btn btn-primary mb-2">Cadastrar Novo</a> --}}
     <div class="card card-primary">
         <div class="card-body">
             {!! $dataTable->table() !!}

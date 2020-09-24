@@ -35,4 +35,6 @@ Route::middleware('auth')->group(function (){
     Route::resource('vendas', 'VendaController')->only([
         'index', 'create', 'store','show'
     ]);
+
+    Route::get('graficos', 'VendaController@graficoQtdCompras')->name('clientes.graficos');
 });
