@@ -258,7 +258,7 @@ return [
         ],
         [
             'url' => 'graficos',
-            'text' => 'Gráficos',
+            'text' => 'Dashboard',
             'icon' => 'fas fa-chart-pie'
         ]
 

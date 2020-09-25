@@ -65,4 +65,14 @@ class VendaService
             return null;
         }
     }
+
+
+    public static function graficoQtdCompras(){
+
+        return $dados = Venda::join('clientes', 'clientes.id', 'vendas.cliente_id')
+                ->select('clientes.nome as name', DB::raw('count(vendas.cliente_id) as y'))
+                ->groupBy('cliente_id', 'nome')
+                ->get();
+          
+    }
 } 

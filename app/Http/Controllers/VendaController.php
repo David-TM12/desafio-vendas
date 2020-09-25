@@ -67,13 +67,12 @@ class VendaController extends Controller
     }
 
     public function graficoQtdCompras(){
-    
-        $userDatas = Venda::join('clientes', 'clientes.id', 'vendas.cliente_id')
-        ->select('clientes.nome as name' , DB::raw('count(vendas.cliente_id) as y'))
-        ->groupBy('cliente_id','nome')
-        ->get();
+        
+        $dados = VendaService::graficoQtdCompras();
 
-        return view('grafico.grafico-pi')->with(compact('userDatas'));
+        return view('grafico.grafico-pi')->with(compact('dados'));
+        
+       
     }
 
 }
