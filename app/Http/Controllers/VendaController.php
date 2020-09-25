@@ -73,7 +73,7 @@ class VendaController extends Controller
         ->groupBy('cliente_id','nome')
         ->get();
 
-        return view('home')->with(compact('userDatas'));
+        return view('grafico.grafico-pi')->with(compact('userDatas'));
     }
 
 }

@@ -36,5 +36,5 @@ Route::middleware('auth')->group(function (){
         'index', 'create', 'store','show'
     ]);
 
-    Route::get('home', 'VendaController@graficoQtdCompras');
+    Route::get('graficos', 'VendaController@graficoQtdCompras');
 });

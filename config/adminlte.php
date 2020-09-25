@@ -255,7 +255,13 @@ return [
             'url' => 'vendas',
             'text' => 'Vendas',
             'icon' => 'fas fa-shopping-cart'
+        ],
+        [
+            'url' => 'graficos',
+            'text' => 'Gráficos',
+            'icon' => 'fas fa-chart-pie'
         ]
+
     ],
 
     /*
