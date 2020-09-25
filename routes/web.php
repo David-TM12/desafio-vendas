@@ -36,5 +36,5 @@ Route::middleware('auth')->group(function (){
         'index', 'create', 'store','show'
     ]);
 
-    Route::get('graficos', 'VendaController@graficoQtdCompras')->name('clientes.graficos');
+    Route::get('home', 'VendaController@graficoQtdCompras');
 });
